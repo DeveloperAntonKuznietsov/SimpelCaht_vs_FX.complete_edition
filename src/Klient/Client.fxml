@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Klient.Controller">
+   <children>
+      <AnchorPane prefHeight="118.0" prefWidth="266.0">
+         <children>
+            <MenuBar layoutX="8.0" layoutY="2.0" prefHeight="25.0" prefWidth="263.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Nickname">
+                           <graphic>
+                              <TextField fx:id="txtNickName" />
+                           </graphic></MenuItem>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TextField fx:id="txtInput" layoutX="14.0" layoutY="56.0" prefHeight="25.0" prefWidth="230.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="56.0" />
+            <Label layoutY="25.0" text="Message:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Button fx:id="btnSend" defaultButton="true" layoutX="235.0" layoutY="56.0" mnemonicParsing="false" text="Send" AnchorPane.rightAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="252.0" prefWidth="280.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TextArea fx:id="log" layoutX="-1.0" prefHeight="252.0" prefWidth="263.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="41.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="lblCount" layoutX="8.0" layoutY="13.0" text="Count" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
