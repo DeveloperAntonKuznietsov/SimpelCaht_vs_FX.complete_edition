@@ -15,4 +15,5 @@ public class Data{
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
        return s = simpleDateFormat.format(calendar.getTime());
     }
+
 }

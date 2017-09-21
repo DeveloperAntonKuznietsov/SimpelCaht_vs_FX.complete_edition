@@ -25,11 +25,13 @@ public class Controller implements  TCPConnectionListener {
     @FXML
     Label lblDate;
 
-    private static final String IP_ADDR = "127.0.0.1";
-    private static final int PORT = 8888;
+    private static final String IP_ADDR = "127.0.0.1 ";
+    private static final int PORT = 8889;
     private TCPConnection connection;
     private int countMsg = 0;
     Data s =new Data();
+    private final Sound SOUND = new Sound();
+
     @FXML
     public void initialize(){
         log.setEditable(false);
@@ -38,7 +40,8 @@ public class Controller implements  TCPConnectionListener {
             String msg = txtInput.getText();
             if(msg.equals(""))return;
             txtInput.setText("");
-            connection.sendString(s.data()+txtNickName.getText() + ": " + msg);
+            connection.sendString(s.data()+txtNickName.getText() + ": " + msg,SOUND);
+
             countMsg++;
              lblCount.setText("Count : "+countMsg);
             });
@@ -77,5 +80,8 @@ public class Controller implements  TCPConnectionListener {
     private synchronized void printMsg(String msg) {
         log.appendText(msg + "\n");
         }
-    }
+
+}
+
+
 
