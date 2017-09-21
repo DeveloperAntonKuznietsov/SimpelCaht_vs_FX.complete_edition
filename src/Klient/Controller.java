@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 import java.io.IOException;
@@ -23,24 +25,45 @@ public class Controller implements  TCPConnectionListener {
     @FXML
     Label lblCount;
     @FXML
-    Label lblDate;
+    private Button btnSound;
+    @FXML
+    private ImageView imgView;
+
 
     private static final String IP_ADDR = "127.0.0.1 ";
     private static final int PORT = 8889;
     private TCPConnection connection;
     private int countMsg = 0;
     Data s =new Data();
-    private final Sound SOUND = new Sound();
+    private  Sound sound=new Sound();
+    private Boolean play = true;
+    private Image soundOn = new Image(getClass().getResourceAsStream("img\\soundOn.png"));
+    private Image soundOff = new Image(getClass().getResourceAsStream("img\\soundOff.png"));
 
     @FXML
     public void initialize(){
         log.setEditable(false);
 
+        btnSound.setOnAction(event -> {
+
+            if (play.equals(true)){
+                play=false;
+                imgView.setImage(soundOff);
+            }
+            else {
+                play=true;
+                imgView.setImage(soundOn);
+            }
+        });
+
         btnSend.setOnAction(event -> {
             String msg = txtInput.getText();
             if(msg.equals(""))return;
             txtInput.setText("");
-            connection.sendString(s.data()+txtNickName.getText() + ": " + msg,SOUND);
+            if(play.equals(true)){
+            connection.sendString(s.data()+txtNickName.getText() + ": " + msg,sound);}
+            else {
+            connection.sendString(s.data()+txtNickName.getText() + ": " + msg);}
 
             countMsg++;
              lblCount.setText("Count : "+countMsg);
@@ -54,6 +77,7 @@ public class Controller implements  TCPConnectionListener {
         } catch (IOException e) {
             printMsg("Connection exception: " + e);
         }
+
     }
 
 

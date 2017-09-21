@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -51,6 +52,14 @@
       <AnchorPane prefHeight="41.0" prefWidth="600.0">
          <children>
             <Label fx:id="lblCount" layoutX="8.0" layoutY="13.0" text="Count" />
+            <Button fx:id="btnSound" layoutX="270.0" layoutY="9.0" mnemonicParsing="false" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <graphic>
+                  <ImageView fx:id="imgView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/soundOn.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </AnchorPane>
    </children>
