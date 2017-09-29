@@ -1,7 +1,5 @@
 package Networks;
 
-import Klient.Sound;
-
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.Charset;
@@ -13,7 +11,6 @@ public class TCPConnection {
     private final TCPConnectionListener eventListener;
     private final BufferedReader in;
     private final BufferedWriter out;
-
 
     public TCPConnection(TCPConnectionListener eventListener, String ipAddr, int port) throws IOException {
         this(eventListener, new Socket(ipAddr, port));
@@ -46,15 +43,6 @@ public class TCPConnection {
         try {
             out.write(value + "\r\n");
             out.flush();
-        } catch (IOException e) {
-            eventListener.onException(this, e);
-            disconnect();
-        }
-    }public synchronized void sendString(String value, Sound sound) {
-        try {
-            out.write(value + "\r\n");
-            out.flush();
-            sound.play();
         } catch (IOException e) {
             eventListener.onException(this, e);
             disconnect();

@@ -30,12 +30,11 @@ public class Controller implements  TCPConnectionListener {
     private ImageView imgView;
 
 
-    private static final String IP_ADDR = "127.0.0.1 ";
-    private static final int PORT = 8889;
+    private static final String IP_ADDR = "127.0.0.1";
+    private static final int PORT = 8189;
     private TCPConnection connection;
     private int countMsg = 0;
     Data s =new Data();
-    private  Sound sound=new Sound();
     private Boolean play = true;
     private Image soundOn = new Image(getClass().getResourceAsStream("img\\soundOn.png"));
     private Image soundOff = new Image(getClass().getResourceAsStream("img\\soundOff.png"));
@@ -44,26 +43,12 @@ public class Controller implements  TCPConnectionListener {
     public void initialize(){
         log.setEditable(false);
 
-        btnSound.setOnAction(event -> {
-
-            if (play.equals(true)){
-                play=false;
-                imgView.setImage(soundOff);
-            }
-            else {
-                play=true;
-                imgView.setImage(soundOn);
-            }
-        });
 
         btnSend.setOnAction(event -> {
             String msg = txtInput.getText();
             if(msg.equals(""))return;
             txtInput.setText("");
-            if(play.equals(true)){
-            connection.sendString(s.data()+txtNickName.getText() + ": " + msg,sound);}
-            else {
-            connection.sendString(s.data()+txtNickName.getText() + ": " + msg);}
+            connection.sendString(s.data()+txtNickName.getText() + ": " + msg);
 
             countMsg++;
              lblCount.setText("Count : "+countMsg);

@@ -1,5 +1,7 @@
 package Networks;
 
+import Networks.TCPConnection;
+
 public interface TCPConnectionListener {
 
     void onConnectionReady(TCPConnection tcpConnection);

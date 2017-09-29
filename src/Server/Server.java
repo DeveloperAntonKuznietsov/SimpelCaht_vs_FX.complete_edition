@@ -1,5 +1,6 @@
 package Server;
 
+
 import Networks.TCPConnection;
 import Networks.TCPConnectionListener;
 
@@ -17,7 +18,7 @@ public class Server implements TCPConnectionListener {
 
     private Server() {
         System.out.println("Server running...");
-        try(ServerSocket serverSocket = new ServerSocket(8889)) {
+        try(ServerSocket serverSocket = new ServerSocket(8189)) {
             while(true) {
                 try {
                     new TCPConnection(this, serverSocket.accept());
